@@ -43,7 +43,7 @@
    ========================================================================= */
 
 const vouchers = [
-     {
+{
   voucherId: "IA-2026-08-0001",
   studentId: "STD-10-001",
   studentName: "Hassnain Ali",
@@ -63,8 +63,8 @@ const vouchers = [
   finalPayable: 2100,
   issueDate: "2026-08-07",
   dueDate: "2026-08-14",
-  paymentDate: null,
-  status: "UNPAID"
+  paymentDate: "2026-08-13",
+  status: "PAID"
 },
 {
   voucherId: "IA-2026-08-0002",
