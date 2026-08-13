@@ -32,7 +32,7 @@ const students = [
   {
     studentId: "STD-10-001",
     rollNo: "110001",
-    name: "Hassnain Ali",
+    name: "Husnain Ali",
     fatherName: "Shahbaz Ali",
     className: "10"
   },
