@@ -25,30 +25,30 @@ const students = [
   {
     studentId: "STD-9-001",
     rollNo: "109001",
-    name: "Ali Ahmed",
-    fatherName: "Muhammad Ahmed",
+    name: "Rahum Arfan Lone",
+    fatherName: "Arfan Lone",
     className: "9"
   },
   {
-    studentId: "STD-9-002",
-    rollNo: "109002",
-    name: "Ahmed Khan",
-    fatherName: "Aslam Khan",
-    className: "9"
+    studentId: "STD-10-001",
+    rollNo: "110001",
+    name: "Hassnain Ali",
+    fatherName: "Shahbaz Ali",
+    className: "10"
   },
   {
-    studentId: "STD-11-001",
-    rollNo: "111001",
-    name: "Sara Fatima",
-    fatherName: "Imran Malik",
-    className: "11"
-  },
-  {
-    studentId: "STD-12-001",
-    rollNo: "112001",
-    name: "Hassan Raza",
-    fatherName: "Tariq Raza",
-    className: "12"
-  }
+  studentId: "STD-6-001",
+  rollNo: "106001",
+  name: "Ameer Hamza",
+  fatherName: "Malik Waseem",
+  className: "6"
+},
+{
+  studentId: "STD-10-002",
+  rollNo: "110002",
+  name: "Hanzala Akram",
+  fatherName: "Muhammad Akram",
+  className: "10"
+}
   // ADD NEW STUDENT HERE
 ];
