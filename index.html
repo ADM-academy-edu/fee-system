@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligence Academy — Admin Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="login-shell">
+  <div class="login-card fade-in">
+    <img class="login-card__logo" id="academyLogo" src="images/academy-logo.png" alt="Academy logo" onerror="this.style.visibility='hidden'">
+    <h1 id="academyName">Intelligence Academy</h1>
+    <p class="login-card__motto" id="academyMotto">Where Intelligence Meets Excellence</p>
+
+    <div class="form-error" id="loginError"></div>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full">Log In</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

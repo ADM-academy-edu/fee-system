@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Voucher — Intelligence Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="navbar__brand" href="dashboard.html">
+      <img class="navbar__logo" src="../images/academy-logo.png" alt="" onerror="this.style.visibility='hidden'">
+      <span class="navbar__name" id="navName">Intelligence Academy</span>
+    </a>
+    <div class="navbar__links">
+      <a class="navbar__link" data-nav="dashboard" href="dashboard.html">Dashboard</a>
+      <a class="navbar__link" data-nav="issue" href="issue-voucher.html">Issue Fee</a>
+      <a class="navbar__link" data-nav="payment" href="receive-payment.html">Receive Payment</a>
+      <a class="navbar__link" data-nav="tracking" href="tracking.html">Track Voucher</a>
+      <a class="navbar__link" data-nav="register" href="register-student.html">Register Student</a>
+    </div>
+    <div class="navbar__spacer"></div>
+    <button class="navbar__logout" id="logoutBtn">Log Out</button>
+  </div>
+</nav>
+
+<main class="page-main">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="dashboard.html">Dashboard</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Track Voucher</span>
+    </div>
+    <div class="page-head">
+      <span class="eyebrow">Module 3</span>
+      <h1>Track Voucher</h1>
+      <p class="subtitle">Find a student's complete fee voucher/payment history.</p>
+    </div>
+
+    <section class="panel">
+      <div class="panel__title">Find Student</div>
+      <div class="filter-row" id="classFilterRow"></div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search by Student ID or Name…">
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </section>
+
+    <!-- ===================== HISTORY VIEW ===================== -->
+    <div id="historyView" class="hidden">
+      <section class="panel">
+        <div class="panel__title">Student</div>
+        <div class="form-grid">
+          <div class="field"><label>Student ID</label><div class="readonly-field" id="out-studentId">—</div></div>
+          <div class="field"><label>Class</label><div class="readonly-field" id="out-className">—</div></div>
+          <div class="field"><label>Student Name</label><div class="readonly-field" id="out-name">—</div></div>
+          <div class="field"><label>Roll No</label><div class="readonly-field" id="out-rollNo">—</div></div>
+        </div>
+        <div class="btn-row"><button class="btn btn--outline btn--sm" id="changeStudentBtn">Search Another Student</button></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__title">Period Filter</div>
+        <div class="filter-row" id="periodFilterRow"></div>
+        <div class="date-range-row" id="customRangeRow">
+          <div class="field"><label for="fromDate">From Date</label><input type="date" id="fromDate"></div>
+          <div class="field"><label for="toDate">To Date</label><input type="date" id="toDate"></div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="historyTable">
+            <thead>
+              <tr>
+                <th>Month</th><th>Voucher ID</th><th>Issue Date</th><th>Due Date</th>
+                <th>Payment Date</th><th>Actual Fee</th><th>Discount</th><th>Tuition</th>
+                <th>Assessment</th><th>Fine Rate</th><th>Fine</th><th>Final Amount</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody"></tbody>
+          </table>
+        </div>
+        <div class="btn-row"><button class="btn btn--primary" id="previewReportBtn">Preview Report</button></div>
+      </section>
+    </div>
+
+    <!-- ===================== REPORT PREVIEW ===================== -->
+    <div id="reportView" class="hidden">
+      <div class="voucher-outer">
+        <div class="voucher" id="reportEl" style="max-width: 900px;">
+          <div class="voucher__inner">
+            <div class="voucher__header">
+              <img class="voucher__logo" src="../images/academy-logo.png" alt="" onerror="this.style.visibility='hidden'">
+              <div class="voucher__brand">
+                <h2 id="r-academyName">Intelligence Academy</h2>
+                <div class="motto" id="r-motto"></div>
+                <div class="contact" id="r-contact"></div>
+              </div>
+            </div>
+
+            <div class="voucher__title">Fee History Report</div>
+            <div class="voucher__voucher-id" id="r-period"></div>
+
+            <div class="voucher__section-label">Student Information</div>
+            <div class="voucher__student-grid">
+              <div><span>Student ID:</span><span id="r-studentId"></span></div>
+              <div><span>Class:</span><span id="r-className"></span></div>
+              <div><span>Name:</span><span id="r-name"></span></div>
+              <div><span>Roll No:</span><span id="r-rollNo"></span></div>
+            </div>
+
+            <div class="voucher__section-label">Voucher History</div>
+            <div class="table-wrap">
+              <table class="data-table" id="reportTable" style="min-width:0;">
+                <thead>
+                  <tr>
+                    <th>Month</th><th>Issue</th><th>Due</th><th>Paid</th>
+                    <th>Fee</th><th>Fine</th><th>Final</th><th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="reportTableBody"></tbody>
+              </table>
+            </div>
+
+            <div class="voucher__footer" id="r-quote"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row btn-row--center">
+        <button class="btn btn--accent" id="savePngBtn">Save as PNG</button>
+        <button class="btn btn--accent" id="saveJpgBtn">Save as JPG</button>
+        <button class="btn btn--accent" id="savePdfBtn">Download PDF</button>
+        <button class="btn btn--whatsapp" id="shareBtn">Share on WhatsApp</button>
+      </div>
+      <div class="btn-row btn-row--center">
+        <button class="btn btn--outline" id="backBtn">Back to History</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/students.js"></script>
+<script src="../js/vouchers.js"></script>
+<script src="../js/calculations.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/export.js"></script>
+<script src="../js/tracking.js"></script>
+</body>
+</html>

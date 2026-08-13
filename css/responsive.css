@@ -1,0 +1,48 @@
+/* =========================================================================
+   css/responsive.css
+   -------------------------------------------------------------------------
+   Breakpoints:  >1024px desktop (default styles)
+                 768-1024px tablet
+                 <768px mobile
+   ========================================================================= */
+
+/* ------------------------------- Tablet (<=1024px) ------------------------- */
+@media (max-width: 1024px) {
+  .class-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ------------------------------- Tablet (<=860px) --------------------------- */
+@media (max-width: 860px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .navbar__inner { flex-wrap: wrap; }
+  .navbar__links { order: 3; width: 100%; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.15); margin-top: 8px; }
+}
+
+/* ------------------------------- Mobile (<=720px) --------------------------- */
+@media (max-width: 720px) {
+  .voucher { padding: 22px 18px; }
+  .class-grid { grid-template-columns: repeat(3, 1fr); }
+  .btn-row { flex-direction: column; }
+  .btn-row .btn { width: 100%; }
+  .search-bar { flex-direction: column; align-items: stretch; }
+}
+
+/* ------------------------------- Small mobile (<=480px) ---------------------- */
+@media (max-width: 480px) {
+  .voucher__student-grid { grid-template-columns: 1fr; }
+  .voucher__header { flex-wrap: wrap; }
+  .class-grid { grid-template-columns: repeat(2, 1fr); }
+  .navbar__name { display: none; }
+  .container { padding: 0 16px; }
+  .login-card { padding: 32px 22px 26px; }
+  .search-result-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* --------------------------------- Print ------------------------------------- */
+@media print {
+  body * { visibility: hidden; }
+  .voucher, .voucher * { visibility: visible; }
+  .voucher { position: absolute; top: 0; left: 0; box-shadow: none; }
+}

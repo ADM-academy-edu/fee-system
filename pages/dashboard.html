@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Intelligence Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="navbar__brand" href="dashboard.html">
+      <img class="navbar__logo" id="navLogo" src="../images/academy-logo.png" alt="" onerror="this.style.visibility='hidden'">
+      <span class="navbar__name" id="navName">Intelligence Academy</span>
+    </a>
+    <div class="navbar__links">
+      <a class="navbar__link" data-nav="dashboard" href="dashboard.html">Dashboard</a>
+      <a class="navbar__link" data-nav="issue" href="issue-voucher.html">Issue Fee</a>
+      <a class="navbar__link" data-nav="payment" href="receive-payment.html">Receive Payment</a>
+      <a class="navbar__link" data-nav="tracking" href="tracking.html">Track Voucher</a>
+      <a class="navbar__link" data-nav="register" href="register-student.html">Register Student</a>
+    </div>
+    <div class="navbar__spacer"></div>
+    <button class="navbar__logout" id="logoutBtn">Log Out</button>
+  </div>
+</nav>
+
+<main class="page-main">
+  <div class="container">
+    <div class="dashboard-header fade-in">
+      <span class="eyebrow">Admin Dashboard</span>
+      <h1>What would you like to do?</h1>
+    </div>
+
+    <div class="card-grid">
+      <a class="module-card fade-in fade-in--1" href="issue-voucher.html">
+        <div class="module-card__icon">💳</div>
+        <h2>Issue Fee</h2>
+        <p>Generate a new monthly fee voucher.</p>
+        <span class="module-card__cta">Open module &rarr;</span>
+      </a>
+
+      <a class="module-card fade-in fade-in--2" href="receive-payment.html">
+        <div class="module-card__icon">✅</div>
+        <h2>Receive Payment</h2>
+        <p>Record payment and calculate late fine.</p>
+        <span class="module-card__cta">Open module &rarr;</span>
+      </a>
+
+      <a class="module-card fade-in fade-in--3" href="tracking.html">
+        <div class="module-card__icon">📊</div>
+        <h2>Track Voucher</h2>
+        <p>View student voucher/payment history.</p>
+        <span class="module-card__cta">Open module &rarr;</span>
+      </a>
+
+      <a class="module-card fade-in fade-in--4" href="register-student.html">
+        <div class="module-card__icon">🧑‍🎓</div>
+        <h2>Register New Student</h2>
+        <p>Add a new student to students.js.</p>
+        <span class="module-card__cta">Open module &rarr;</span>
+      </a>
+    </div>
+
+    <!-- ===================== ADMIN ANALYTICS (new, read-only) ===================== -->
+    <section id="analyticsSection">
+      <div class="analytics-header fade-in">
+        <span class="eyebrow">Admin Overview</span>
+        <h2>Analytics</h2>
+        <p class="subtitle">Read-only insights calculated from your existing student and voucher data.</p>
+      </div>
+
+      <div class="analytics-error hidden" id="analyticsError" role="alert"></div>
+      <div class="analytics-empty hidden" id="noStudentsNotice">No students registered yet.</div>
+
+      <!-- KPI cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card fade-in fade-in--1">
+          <div class="kpi-card__icon">🧑‍🎓</div>
+          <div class="kpi-card__title">Total Students</div>
+          <div class="kpi-card__value" id="kpi-totalStudents">0</div>
+          <div class="kpi-card__desc">Registered students</div>
+        </div>
+        <div class="kpi-card fade-in fade-in--2">
+          <div class="kpi-card__icon">✅</div>
+          <div class="kpi-card__title">Students Paid</div>
+          <div class="kpi-card__value" id="kpi-studentsPaid">0</div>
+          <div class="kpi-card__desc">Unique students, selected period</div>
+        </div>
+        <div class="kpi-card kpi-card--accent fade-in fade-in--3">
+          <div class="kpi-card__icon">💰</div>
+          <div class="kpi-card__title">Total Collected</div>
+          <div class="kpi-card__value" id="kpi-totalCollected">Rs. 0</div>
+          <div class="kpi-card__desc">Selected period</div>
+        </div>
+        <div class="kpi-card kpi-card--accent fade-in fade-in--4">
+          <div class="kpi-card__icon">📅</div>
+          <div class="kpi-card__title">Current Month</div>
+          <div class="kpi-card__value" id="kpi-currentMonthValue">Rs. 0</div>
+          <div class="kpi-card__desc" id="kpi-currentMonthLabel">—</div>
+        </div>
+      </div>
+
+      <!-- Analytics filter -->
+      <section class="panel">
+        <div class="panel__title">Analytics Period</div>
+        <div class="filter-row" id="analyticsFilterRow"></div>
+        <div class="date-range-row" id="analyticsCustomRow">
+          <div class="field"><label for="analyticsFromDate">From Date</label><input type="date" id="analyticsFromDate"></div>
+          <div class="field"><label for="analyticsToDate">To Date</label><input type="date" id="analyticsToDate"></div>
+          <div class="field" style="align-self:flex-end;"><button class="btn btn--primary btn--sm" id="applyCustomRangeBtn">Apply Filter</button></div>
+        </div>
+        <div class="error-text" id="analyticsRangeError"></div>
+      </section>
+
+      <!-- Class-wise chart -->
+      <section class="panel">
+        <div class="panel__title">Class-wise Student Count</div>
+        <div class="chart-bars" id="classChart"></div>
+      </section>
+
+      <!-- Revenue / payment analytics -->
+      <section class="panel">
+        <div class="panel__title">Revenue &amp; Payment Analytics</div>
+        <div class="analytics-empty hidden" id="breakdownEmpty">No payment data available for this period.</div>
+        <div id="breakdownContent">
+          <div class="breakdown-grid">
+            <div class="breakdown-item">
+              <div class="breakdown-item__label">Fee Collected</div>
+              <div class="breakdown-item__value" id="breakdown-fee">Rs. 0</div>
+            </div>
+            <div class="breakdown-item breakdown-item--fine">
+              <div class="breakdown-item__label">Fine Collected</div>
+              <div class="breakdown-item__value" id="breakdown-fine">Rs. 0</div>
+            </div>
+            <div class="breakdown-item breakdown-item--total">
+              <div class="breakdown-item__label">Total Collected</div>
+              <div class="breakdown-item__value" id="breakdown-total">Rs. 0</div>
+            </div>
+          </div>
+          <div class="voucher-count-row">
+            <span>Paid vouchers (selected period): <strong id="breakdown-paidCount">0</strong></span>
+            <span>Unpaid vouchers (all time): <strong id="breakdown-unpaidCount">0</strong></span>
+          </div>
+        </div>
+      </section>
+    </section>
+
+  </div>
+</main>
+
+<script src="../js/config.js"></script>
+<script src="../js/students.js"></script>
+<script src="../js/vouchers.js"></script>
+<script src="../js/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  requireLogin();
+  document.getElementById("navName").textContent = academyConfig.name;
+  document.getElementById("logoutBtn").addEventListener("click", logout);
+  setActiveNav("dashboard");
+});
+</script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>
