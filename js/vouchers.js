@@ -88,29 +88,6 @@ const vouchers = [
   dueDate: "2026-08-10",
   paymentDate: "2026-08-07",
   status: "PAID"
-},
-{
-  voucherId: "IA-2026-08-0003",
-  studentId: "STD-6-001",
-  studentName: "Ameer Hamza",
-  fatherName: "Malik Waseem",
-  rollNo: "106001",
-  className: "6",
-  month: 8,
-  year: 2026,
-  totalFee: 1500,
-  actualFee: 1000,
-  discount: 500,
-  discountPct: 33.33,
-  tuitionFee: 800,
-  assessmentFee: 200,
-  fineRate: 50,
-  fine: 0,
-  finalPayable: 1000,
-  issueDate: "2026-08-13",
-  dueDate: "2026-08-17",
-  paymentDate: null,
-  status: "UNPAID"
 }
   // ADD / UPDATE VOUCHER RECORDS HERE
 ];
