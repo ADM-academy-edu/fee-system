@@ -22,33 +22,6 @@
    ========================================================================= */
 
 const students = [
-  {
-    studentId: "STD-9-001",
-    rollNo: "109001",
-    name: "Rahum Arfan Lone",
-    fatherName: "Arfan Lone",
-    className: "9"
-  },
-  {
-    studentId: "STD-10-001",
-    rollNo: "110001",
-    name: "Husnain Ali",
-    fatherName: "Shahbaz Ali",
-    className: "10"
-  },
-  {
-  studentId: "STD-6-001",
-  rollNo: "106001",
-  name: "Ameer Hamza",
-  fatherName: "Malik Waseem",
-  className: "6"
-},
-{
-  studentId: "STD-10-002",
-  rollNo: "110002",
-  name: "Hanzala Akram",
-  fatherName: "Muhammad Akram",
-  className: "10"
-}
+
   // ADD NEW STUDENT HERE
 ];
