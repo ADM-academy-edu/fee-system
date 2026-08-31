@@ -22,6 +22,12 @@
    ========================================================================= */
 
 const students = [
-
+{
+  studentId: "STD-10-001",
+  rollNo: "110001",
+  name: "Hanzala Akram",
+  fatherName: "Muhammad Akram",
+  className: "10"
+},
   // ADD NEW STUDENT HERE
 ];
