@@ -89,6 +89,29 @@ const vouchers = [
   paymentDate: null,
   status: "UNPAID"
 },
+   {
+  voucherId: "IA-2026-09-0002",
+  studentId: "STD-10-002",
+  studentName: "Hassnain Ali",
+  fatherName: "Shahbaz Ali",
+  rollNo: "110002",
+  className: "10",
+  month: 9,
+  year: 2026,
+  totalFee: 4500,
+  actualFee: 2500,
+  discount: 2000,
+  discountPct: 44.44,
+  tuitionFee: 2000,
+  assessmentFee: 500,
+  fineRate: 50,
+  fine: 0,
+  finalPayable: 2500,
+  issueDate: "2026-09-01",
+  dueDate: "2026-09-07",
+  paymentDate: null,
+  status: "UNPAID"
+},
    
 
    
