@@ -112,7 +112,29 @@ const vouchers = [
   paymentDate: null,
   status: "UNPAID"
 },
-   
+   {
+  voucherId: "IA-2026-09-0003",
+  studentId: "STD-10-001",
+  studentName: "Hanzala Akram",
+  fatherName: "Muhammad Akram",
+  rollNo: "110001",
+  className: "10",
+  month: 9,
+  year: 2026,
+  totalFee: 4500,
+  actualFee: 3000,
+  discount: 1500,
+  discountPct: 33.33,
+  tuitionFee: 2400,
+  assessmentFee: 600,
+  fineRate: 50,
+  fine: 0,
+  finalPayable: 3000,
+  issueDate: "2026-09-01",
+  dueDate: "2026-09-07",
+  paymentDate: null,
+  status: "UNPAID"
+},
 
    
   // ADD / UPDATE VOUCHER RECORDS HERE
