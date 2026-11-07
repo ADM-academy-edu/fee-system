@@ -43,5 +43,33 @@ const students = [
   fatherName: "Malik Waseem",
   className: "6"
 },
+    {
+  studentId: "STD-9-001",
+  rollNo: "109001",
+  name: "Rahum lone",
+  fatherName: "Arfan Lone",
+  className: "9"
+},
+   {
+  studentId: "STD-10-003",
+  rollNo: "110003",
+  name: "Subhan Asif",
+  fatherName: "Muhammad Asif",
+  className: "10"
+},
+   {
+  studentId: "STD-10-004",
+  rollNo: "110004",
+  name: "Abdullah Gafaar",
+  fatherName: "Abdul Ghafaar",
+  className: "10"
+},
+   {
+  studentId: "STD-10-005",
+  rollNo: "110005",
+  name: "Zaid Qaisar",
+  fatherName: "Hafiz Qaisar",
+  className: "10"
+},
   // ADD NEW STUDENT HERE
 ];
